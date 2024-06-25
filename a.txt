@@ -1,0 +1,18 @@
+btn.forEach(item => item.addEventListener('click', () => {
+    const op = ['+', '-', '*', '/'];
+    const nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
+    if(display.textContent == '0' && item.textContent != '.') display.textContent = '';
+    if(item.textContent == 'C') display.textContent = '0';
+    op.map(operator => {
+        if (item.textContent == operator) {
+            display.textContent += ` ${operator} `
+        };
+    });
+    nums.map(num => {
+        if (item.textContent == num) {
+            display.textContent += `${num}`
+        };
+    });
+    if(item.textContent == '=') display.textContent = calculate(display.textContent);
+}));
+

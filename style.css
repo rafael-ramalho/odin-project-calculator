@@ -33,9 +33,25 @@ h1 {
     width: 300px;
 }
 
-.operators {
-    width: 100px;
+#operators {
+    width: 200px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
+
+}
+
+.operatorButton {
+    background-color: orange;
+}
+
+#clear {
+    background-color: crimson;
+}
+
+#doubleHeight {
+    height: 200px;
 }
 
 button {
@@ -48,6 +64,3 @@ button {
     font-size: 50px;
 }
 
-#equal {
-    width: 200px;
-}
