@@ -61,7 +61,7 @@ btn.forEach(item => item.addEventListener('click', () => {
         if (op.includes(display.textContent)) {
             display.textContent = item.textContent;
             operator = item.textContent;
-        } else if (nums.includes(display.textContent.charAt(0)) && operatorTyped === true) {
+        } else if (nums.includes(display.textContent.charAt(display.textContent.length-1)) && operatorTyped === true) {
             secondNumber = display.textContent;
             display.textContent = operate(operator, firstNumber, secondNumber);
             firstNumber = display.textContent;
@@ -77,6 +77,14 @@ btn.forEach(item => item.addEventListener('click', () => {
         };
     };
     if(item.textContent == '=') {
+        if (display.textContent === ''){
+            operator = undefined;
+            firstNumber = undefined;
+            secondNumber = undefined;
+            operatorTyped = false;
+            secondOperation = false;
+            decimalTyped = false;
+        };
         if (nums.includes(display.textContent.charAt(display.textContent.length-1))){
             secondNumber = display.textContent;
             display.textContent = operate(operator, firstNumber, secondNumber);
@@ -88,7 +96,7 @@ btn.forEach(item => item.addEventListener('click', () => {
             decimalTyped = false;
         };
     };
-    if(item.textContent == 'C') {
+    if(item.textContent == 'AC') {
         display.textContent = '';
         operator = undefined;
         firstNumber = undefined;
@@ -96,5 +104,21 @@ btn.forEach(item => item.addEventListener('click', () => {
         operatorTyped = false;
         secondOperation = false;
         decimalTyped = false;
-    }
+    };
+    if(item.textContent == '+/-' && nums.includes(display.textContent.charAt(display.textContent.length-1))) {
+        if(Number(display.textContent) > 0) {
+            display.textContent = `-${display.textContent}`;
+        } else if(Number(display.textContent) < 0) {
+            let slicedString = display.textContent.slice(1);
+            display.textContent = slicedString;
+        };
+    };
+    if(item.textContent == '⌫'){
+        if (display.textContent.charAt(display.textContent.length-1) == '.' && decimalTyped === true) {
+            display.textContent = display.textContent.slice(0, -1);
+            decimalTyped = false;
+        } else if (nums.includes(display.textContent.charAt(display.textContent.length-1))) {
+            display.textContent = display.textContent.slice(0, -1);
+        };
+    };
 }));

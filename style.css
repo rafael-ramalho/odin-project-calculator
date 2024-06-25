@@ -30,7 +30,7 @@ h1 {
 #numbers {
     display: flex;
     flex-wrap: wrap;
-    width: 300px;
+    width: 400px;
 }
 
 #operators {
@@ -43,20 +43,20 @@ h1 {
 }
 
 .operatorButton {
-    background-color: orange;
+    background-color: #FF8234;
 }
 
-#clear {
-    background-color: crimson;
+.tools {
+    background-color: #00688B;
 }
 
-#doubleHeight {
-    height: 200px;
+#zero {
+    width: 200px;
 }
 
 button {
     color: white;
-    background-color: #111827;
+    background-color: #2A415F;
     border-color: white;
     box-sizing: border-box;
     height: 100px;
